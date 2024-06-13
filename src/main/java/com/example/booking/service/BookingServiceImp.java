@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.booking.exceptions.BookingExceptions;
 import com.example.booking.model.Booking;
 import com.example.booking.repository.BookingRepository;
 
@@ -22,6 +23,12 @@ public class BookingServiceImp implements BookingService{
 	@Override
 	public void updateBooking(Booking booking) {
 		Optional<Booking> bookingDetails = bookingRepo.findById(booking.getBookingId());
+		
+		if(bookingDetails.isEmpty())
+		{
+			throw new BookingExceptions("Booking Not Found");
+
+		}
 		
 		if(bookingDetails.isPresent())
 		{
