@@ -1,9 +1,6 @@
 package com.example.booking.model;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
-import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,13 +10,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Booking {
-	
-	@Id
-	public Integer bookingId;
-	public Hotel hotel;
-	public User user;
-	public Date bookingDate;
-	
-
+public class Rooms {
+	    int roomId; 
+	    int hotelId; 
+	    String roomType; 
+	    String roomStatus; 
 }

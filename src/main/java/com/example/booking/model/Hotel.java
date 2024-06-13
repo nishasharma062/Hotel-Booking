@@ -1,5 +1,7 @@
 package com.example.booking.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -19,5 +21,9 @@ public class Hotel {
 	public String HotelName;
 	
 	public Address address;
+	
+	public Integer hotelRating;
+	
+	public List<Rooms> rooms;
 
 }
