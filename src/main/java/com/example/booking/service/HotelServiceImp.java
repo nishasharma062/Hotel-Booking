@@ -5,14 +5,14 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.booking.exceptions.BookingExceptions;
 import com.example.booking.exceptions.HotelExceptions;
-import com.example.booking.model.Booking;
 import com.example.booking.model.Hotel;
-import com.example.booking.repository.BookingRepository;
 import com.example.booking.repository.HotelRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class HotelServiceImp implements HotelService{
 
 
@@ -28,7 +28,9 @@ public class HotelServiceImp implements HotelService{
 
 	@Override
 	public void saveHotel(Hotel hotel) {
-		hotelRepo.save(hotel);		
+		hotelRepo.save(hotel);	
+		log.info("Hotel Saved Successfully ");
+
 	}
 
 	@Override
@@ -44,6 +46,8 @@ public class HotelServiceImp implements HotelService{
 			hotelDetails.get().setHotelName(hotel.getHotelName());
 		}
 		hotelRepo.save(hotelDetails.get());
+		log.info("Hotel Updated Successfully ");
+
 	}
 
 	@Override
@@ -51,6 +55,8 @@ public class HotelServiceImp implements HotelService{
 	Optional<Hotel> hotelDetails = hotelRepo.findById(hotel.getHotelId());
 		
 		hotelRepo.delete(hotelDetails.get());
+		log.info("Hotel deleted Successfully ");
+
 	}
 
 }

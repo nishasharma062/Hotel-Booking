@@ -9,7 +9,10 @@ import com.example.booking.exceptions.BookingExceptions;
 import com.example.booking.model.Booking;
 import com.example.booking.repository.BookingRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class BookingServiceImp implements BookingService{
 	
 	@Autowired
@@ -18,6 +21,8 @@ public class BookingServiceImp implements BookingService{
 	@Override
 	public void saveBooking(Booking booking) {
 		bookingRepo.save(booking);
+		log.info("Booking Saved Successfully ");
+
 	}
 
 	@Override
@@ -36,11 +41,15 @@ public class BookingServiceImp implements BookingService{
 			bookingDetails.get().setUser(booking.getUser());
 		}
 		bookingRepo.save(bookingDetails.get());
+		log.info("Booking Updated Successfully ");
+
 	}
 
 	@Override
 	public void cancelBooking(Booking booking) {
 		bookingRepo.delete(booking);
+		log.info("Booking Deleted Successfully ");
+
 	}
 
 	@Override

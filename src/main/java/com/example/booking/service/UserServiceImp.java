@@ -9,6 +9,9 @@ import com.example.booking.exceptions.UserExceptions;
 import com.example.booking.model.User;
 import com.example.booking.repository.UserRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class UserServiceImp implements UserService {
 	
 	@Autowired
@@ -28,6 +31,7 @@ public class UserServiceImp implements UserService {
 	@Override
 	public void saveUser(User user) {
 		userRepo.save(user);		
+		log.info("User Saved Successfully ");
 
 	}
 
@@ -40,7 +44,8 @@ public class UserServiceImp implements UserService {
 			userDetails.get().setUserName(user.getUserName());
 		}
 		userRepo.save(userDetails.get());
-		
+		log.info("User Updated Successfully ");
+
 	}
 
 	@Override
@@ -48,6 +53,9 @@ public class UserServiceImp implements UserService {
 		Optional<User> hotelDetails = userRepo.findById(user.getUserId());
 		
 		userRepo.delete(hotelDetails.get());
+		
+		log.info("User Deleted Successfully ");
+
 	}
 
 }

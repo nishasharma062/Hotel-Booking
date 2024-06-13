@@ -16,6 +16,7 @@ import com.example.booking.service.BookingService;
 @RequestMapping("/rest/v1/booking")
 public class BookingController {
 
+	@Autowired
 	BookingService bookingService;
 
 	@GetMapping("/viewBooking")

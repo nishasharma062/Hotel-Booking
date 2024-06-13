@@ -15,6 +15,7 @@ import com.example.booking.service.HotelService;
 @RestController
 public class HotelController {
 	
+	@Autowired
 	HotelService hotelService;
 
 	@GetMapping("/viewHotel")
